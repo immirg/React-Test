@@ -11,6 +11,7 @@ type Props = {
 export const MoviesListCards = ({ movies, genresMap }: Props) => {
     return (
         <div className="movies-list">
+            {movies.length === 0 && <div>No movies found</div>}
             {movies.map((m) => (
                 <Link key={m.id} to={`/movies/${m.id}`}>
                     <div className="movie-list-item">
