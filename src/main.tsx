@@ -7,12 +7,15 @@ import {App} from "./App.tsx";
 import {MoviesList} from "./pages/MoviesList.tsx";
 import {MovieDetails} from "./pages/MovieDetails.tsx";
 import {store} from "./store.ts";
+import {GenreMoviesPage} from "./pages/GenreMoviesPage.tsx";
 
 const routes = createBrowserRouter([
     {
         path: "/", element: <App/>, children: [
             {index: true, element:<MoviesList/>},
             {path: 'movies/:id', element:<MovieDetails/>},
+            {path: "/genres/:genreId", element: <GenreMoviesPage/>
+}
         ]
     }
 ]);

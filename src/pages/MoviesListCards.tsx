@@ -27,7 +27,9 @@ export const MoviesListCards = ({ movies, genresMap }: Props) => {
 
                         <div className="movie-genres-on-card">
                             <img src={pointer} alt="pointer" height="20" />
-                            <span>{genresMap[m.genre_ids[0]]}</span>
+                            <Link to={`/genres/${m.genre_ids[0]}`}>
+                                <span>{genresMap[m.genre_ids[0]]}</span>
+                            </Link>
                         </div>
 
                         <div className="movie-overview-on-card">

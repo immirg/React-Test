@@ -25,6 +25,17 @@ export const moviesService = {
         if (!res.ok) throw new Error("Failed to search movies");
         return res.json();
     },
+    getMoviesByGenre: async (genreId: number, page: number): Promise<Movies> => {
+        const response = await fetch(
+            `${baseUrl}/discover/movie?with_genres=${genreId}&page=${page}`,
+            {
+                headers: { Authorization: `Bearer ${import.meta.env.VITE_TMDB_TOKEN}` },
+            }
+        );
+
+        if (!response.ok) throw new Error("Failed to load movies by genre");
+        return response.json();
+    },
 }
 
 export const movieDetailsService = {
