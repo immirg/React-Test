@@ -2,15 +2,16 @@ type Props = {
     page: number;
     prev: () => void;
     next: () => void;
-    disablePrev: boolean;
+    disablePrevPage: boolean;
+    disableNextPage: boolean;
 };
 
-export const NavigationButtons = ({ page, prev, next, disablePrev }: Props) => {
+export const NavigationButtons = ({ page, prev, next, disablePrevPage, disableNextPage }: Props) => {
     return (
         <div className="block-buttons">
-            <button onClick={prev} disabled={disablePrev}>Prev</button>
+            <button onClick={prev} disabled={disablePrevPage}>Prev</button>
             <div>Page: {page}</div>
-            <button onClick={next}>Next</button>
+            <button onClick={next} disabled={disableNextPage}>Next</button>
         </div>
     );
 };

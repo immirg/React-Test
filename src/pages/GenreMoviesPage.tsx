@@ -33,7 +33,7 @@ export const GenreMoviesPage = () => {
 
             <NavigationButtons
                 page={page}
-                disablePrev={page <= 1}
+                disablePrevPage={page <= 1}
                 prev={() => setPage(pg => Math.max(1, pg - 1))}
                 next={() => setPage(pg => pg + 1)}
             />

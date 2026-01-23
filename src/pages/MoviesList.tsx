@@ -48,16 +48,22 @@ export const MoviesList = () => {
     if (error) return <div>{error}</div>;
 
     let page = currentPage;
-    let disablePrev = currentPage <= 1;
+    let disablePrevPage = currentPage <= 1;
     let prev = () => {
         dispatch(loadMovies(currentPage - 1));
     };
     let next = () => {
         dispatch(loadMovies(currentPage + 1));
     };
+    let disableNextPage = false;
+    if (search) {
+        disableNextPage = searchMovies.length === 0;
+    } else {
+        disableNextPage = movies.length === 0;
+    }
     if (search) {
         page = searchPage;
-        disablePrev = searchPage <= 1;
+        disablePrevPage = searchPage <= 1;
 
         prev = () => setSearchPage((page:number) => Math.max(1, page - 1));
         next = () => setSearchPage((page:number) => page + 1);
@@ -71,8 +77,9 @@ export const MoviesList = () => {
             <MoviesListCards movies={list} genresMap={genresMap} />
             <NavigationButtons
                 page={page}
-                disablePrev={disablePrev}
+                disablePrevPage={disablePrevPage}
                 prev={prev}
+                disableNextPage={disableNextPage}
                 next={next}
             />
         </>
