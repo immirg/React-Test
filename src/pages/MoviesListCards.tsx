@@ -28,12 +28,17 @@ export const MoviesListCards = ({ movies, genresMap }: Props) => {
 
                         <div className="movie-genres-on-card">
                             <img src={pointer} alt="pointer" height="20" />
-                            <button type="button" onClick={(e) => {
-                                    e.preventDefault();
-                                    e.stopPropagation();
-                                    navigate(`/genres/${m.genre_ids[0]}`);
-                                }}> {genresMap[m.genre_ids[0]]}
-                            </button>
+                            <div className="movie-genres-on-card">
+                                {m.genre_ids.map((id) => (
+                                    <button key={id} type="button" onClick={(e) => {
+                                            e.preventDefault();
+                                            e.stopPropagation();
+                                            navigate(`/genres/${id}`);
+                                        }}>
+                                        {genresMap[id]}
+                                    </button>
+                                ))}
+                            </div>
                         </div>
 
                         <div className="movie-overview-on-card">

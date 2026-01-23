@@ -46,7 +46,7 @@ header {
 }
 /*---------------movie card-------------*/
 .movie-list-item {
-    height: 620px;
+    height: 650px;
     min-height: 620px;
     width: 290px;
     min-width: 290px;
@@ -80,4 +80,9 @@ header {
 }
 .welcome-user {
     display: flex;
+}
+.movie-genres-on-card {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
 }
