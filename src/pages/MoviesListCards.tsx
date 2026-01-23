@@ -1,7 +1,7 @@
-import { Link } from "react-router-dom";
 import type { MoviesDetailsType } from "../types/Movies";
 import pointer from "../img/pointer.png";
 import facebook from "../img/icons-facebook.png";
+import { Link, useNavigate } from "react-router-dom";
 
 type Props = {
     movies: MoviesDetailsType[];
@@ -9,6 +9,7 @@ type Props = {
 };
 
 export const MoviesListCards = ({ movies, genresMap }: Props) => {
+    const navigate = useNavigate();
     return (
         <div className="movies-list">
             {movies.length === 0 && <div>No movies found</div>}
@@ -27,9 +28,12 @@ export const MoviesListCards = ({ movies, genresMap }: Props) => {
 
                         <div className="movie-genres-on-card">
                             <img src={pointer} alt="pointer" height="20" />
-                            <Link to={`/genres/${m.genre_ids[0]}`}>
-                                <span>{genresMap[m.genre_ids[0]]}</span>
-                            </Link>
+                            <button type="button" onClick={(e) => {
+                                    e.preventDefault();
+                                    e.stopPropagation();
+                                    navigate(`/genres/${m.genre_ids[0]}`);
+                                }}> {genresMap[m.genre_ids[0]]}
+                            </button>
                         </div>
 
                         <div className="movie-overview-on-card">
