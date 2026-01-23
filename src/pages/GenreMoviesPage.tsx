@@ -18,7 +18,7 @@ export const GenreMoviesPage = () => {
         moviesGenresService.getGenres().then(data => setGenres(data.genres));
     }, []);
 
-    const genresMap = Object.fromEntries(genres.map(g => [g.id, g.name]));
+    const genresMap = Object.fromEntries(genres.map(genre => [genre.id, genre.name]));
 
     useEffect(() => {
         if (!id) return;
@@ -34,8 +34,8 @@ export const GenreMoviesPage = () => {
             <NavigationButtons
                 page={page}
                 disablePrev={page <= 1}
-                prev={() => setPage(p => Math.max(1, p - 1))}
-                next={() => setPage(p => p + 1)}
+                prev={() => setPage(pg => Math.max(1, pg - 1))}
+                next={() => setPage(pg => pg + 1)}
             />
         </>
     );

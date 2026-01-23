@@ -1,6 +1,5 @@
 import type {Movies, MoviesDetailsType} from "../types/Movies.ts";
 export const baseUrl: string = 'https://api.themoviedb.org/3';
-export const imageUrl: string = 'https://image.tmdb.org/t/p/';
 
 export const moviesService = {
     getAllMovies: async (page: number):Promise<Movies> => {
