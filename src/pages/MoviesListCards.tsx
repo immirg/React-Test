@@ -26,7 +26,7 @@ export const MoviesListCards = ({ movies, genresMap }: Props) => {
                         <div className="movie-title-on-card">{m.title}</div>
                         <div className="movie-genres-on-card">
                             <img src={pointer} alt="pointer" height="20" />
-                            <div className="movie-genres-on-card">
+                            <div className="movie-genres-buttons">
                                 {m.genre_ids.map((id) => (
                                     <button key={id} type="button" onClick={(e) => {
                                             e.preventDefault();

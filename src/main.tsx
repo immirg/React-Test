@@ -14,7 +14,7 @@ const routes = createBrowserRouter([
         path: "/", element: <App/>, children: [
             {index: true, element:<MoviesList/>},
             {path: 'movies/:id', element:<MovieDetails/>},
-            {path: "/genres/:genreId", element: <GenreMoviesPage/>
+            {path: "genres/:genreId", element: <GenreMoviesPage/>
 }
         ]
     }
