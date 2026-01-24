@@ -13,7 +13,7 @@ export const MovieDetails = () => {
 
     useEffect(() => {
         if (!id) {
-            return
+            return;
         }
         dispatch(loadMovieById(id));
     }, [dispatch, id]);

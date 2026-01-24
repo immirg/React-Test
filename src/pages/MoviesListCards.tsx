@@ -23,9 +23,7 @@ export const MoviesListCards = ({ movies, genresMap }: Props) => {
                                 alt={m.title}
                             />
                         )}
-
                         <div className="movie-title-on-card">{m.title}</div>
-
                         <div className="movie-genres-on-card">
                             <img src={pointer} alt="pointer" height="20" />
                             <div className="movie-genres-on-card">
@@ -40,11 +38,9 @@ export const MoviesListCards = ({ movies, genresMap }: Props) => {
                                 ))}
                             </div>
                         </div>
-
                         <div className="movie-overview-on-card">
                             {m.overview.split(" ").slice(0, 10).join(" ")}...
                         </div>
-
                         <div className="movie-rating-on-card">
                             {"★".repeat(Math.round(m.vote_average / 2))}
                             {"☆".repeat(5 - Math.round(m.vote_average / 2))}

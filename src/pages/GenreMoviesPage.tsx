@@ -20,6 +20,11 @@ export const GenreMoviesPage = () => {
 
     const genresMap = Object.fromEntries(genres.map(genre => [genre.id, genre.name]));
 
+    const getDisableNextPage = (itemsLength: number) => {
+        return itemsLength === 0;
+    };
+    const disableNextPage = getDisableNextPage(movies.length);
+
     useEffect(() => {
         if (!id) return;
         moviesService.getMoviesByGenre(id, page).then(data => setMovies(data.results));
@@ -34,6 +39,7 @@ export const GenreMoviesPage = () => {
             <NavigationButtons
                 page={page}
                 disablePrevPage={page <= 1}
+                disableNextPage={disableNextPage}
                 prev={() => setPage(pg => Math.max(1, pg - 1))}
                 next={() => setPage(pg => pg + 1)}
             />
